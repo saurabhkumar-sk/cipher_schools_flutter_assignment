@@ -1,4 +1,4 @@
-import 'package:cipher_schools_flutter_assignment/screens/home_screen.dart';
+import 'package:cipher_schools_flutter_assignment/screens/bottom_navigation_bar_screen.dart';
 import 'package:flutter/material.dart';
 
 class SignUpScreen extends StatelessWidget {
@@ -230,7 +230,8 @@ class SignUpScreen extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const HomeScreen(),
+                            builder: (context) =>
+                                const BottomNavigationBarScree(),
                           ));
                     },
                     child: const Text(

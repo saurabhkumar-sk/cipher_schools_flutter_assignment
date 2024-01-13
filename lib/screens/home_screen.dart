@@ -1,5 +1,7 @@
 import 'package:cipher_schools_flutter_assignment/components/custombutton.dart';
 import 'package:cipher_schools_flutter_assignment/components/transaction_history_cus.dart';
+import 'package:cipher_schools_flutter_assignment/screens/expenses_screen.dart';
+import 'package:cipher_schools_flutter_assignment/screens/income_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -78,96 +80,116 @@ class HomeScreen extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Container(
-                      height: 80,
-                      width: 170,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: const Color.fromRGBO(0, 168, 107, 1),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Container(
-                            height: 48,
-                            width: 48,
-                            decoration: const BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(20),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const IncomeScreen(),
+                          ),
+                        );
+                      },
+                      child: Container(
+                        height: 80,
+                        width: 170,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: const Color.fromRGBO(0, 168, 107, 1),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Container(
+                              height: 48,
+                              width: 48,
+                              decoration: const BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(20),
+                                ),
                               ),
+                              child: Image.asset("assets/images/income.png"),
                             ),
-                            child: Image.asset("assets/images/income.png"),
-                          ),
-                          const Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "Income",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w500,
+                            const Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "Income",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
-                              ),
-                              Text(
-                                "₹50000",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 22,
-                                  fontWeight: FontWeight.w600,
+                                Text(
+                                  "₹50000",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.w600,
+                                  ),
                                 ),
-                              ),
-                            ],
-                          ),
-                        ],
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                    Container(
-                      height: 80,
-                      width: 170,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: const Color.fromRGBO(253, 60, 74, 1),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Container(
-                            height: 48,
-                            width: 48,
-                            decoration: const BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(20),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const ExpensesScreen(),
+                          ),
+                        );
+                      },
+                      child: Container(
+                        height: 80,
+                        width: 170,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: const Color.fromRGBO(253, 60, 74, 1),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Container(
+                              height: 48,
+                              width: 48,
+                              decoration: const BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(20),
+                                ),
                               ),
+                              child: Image.asset("assets/images/expense.png"),
                             ),
-                            child: Image.asset("assets/images/expense.png"),
-                          ),
-                          const Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "Expenses",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w500,
+                            const Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "Expenses",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
-                              ),
-                              Text(
-                                "₹12000",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 22,
-                                  fontWeight: FontWeight.w600,
+                                Text(
+                                  "₹12000",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.w600,
+                                  ),
                                 ),
-                              ),
-                            ],
-                          ),
-                        ],
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ],
@@ -230,13 +252,38 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 9),
-          TransactionHistory(
-            image: "assets/images/income.png",
-            title: "title",
-            subTitle: "subTitle",
-            price: "price",
-            dateTime: DateTime.now(),
+          const TransactionHistory(
+            image: "assets/images/shopping bag.png",
+            title: "Shopping",
+            subTitle: "Buy some grocery",
+            price: "- ₹120",
+            dateTime: "10:00 AM",
           ),
+          const SizedBox(height: 21),
+          const TransactionHistory(
+            image: "assets/images/shopping bag.png",
+            title: "Shopping",
+            subTitle: "Buy some grocery",
+            price: "- ₹120",
+            dateTime: "10:00 AM",
+          ),
+          const SizedBox(height: 21),
+          const TransactionHistory(
+            image: "assets/images/shopping bag.png",
+            title: "Shopping",
+            subTitle: "Buy some grocery",
+            price: "- ₹120",
+            dateTime: "10:00 AM",
+          ),
+          const SizedBox(height: 21),
+          const TransactionHistory(
+            image: "assets/images/shopping bag.png",
+            title: "Shopping",
+            subTitle: "Buy some grocery",
+            price: "- ₹120",
+            dateTime: "10:00 AM",
+          ),
+          const SizedBox(height: 21),
         ],
       ),
     );
