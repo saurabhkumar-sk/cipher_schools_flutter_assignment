@@ -1,4 +1,5 @@
 import 'package:cipher_schools_flutter_assignment/screens/home_screen.dart';
+import 'package:cipher_schools_flutter_assignment/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavigationBarScree extends StatefulWidget {
@@ -31,7 +32,7 @@ class _BottomNavigationBarScreeState extends State<BottomNavigationBarScree> {
             child: Favourite(),
           ),
           Center(
-            child: Profile(),
+            child: ProfileScreen(),
           ),
         ],
       ),
@@ -107,14 +108,5 @@ class Favourite extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Text('Favourites');
-  }
-}
-
-class Profile extends StatelessWidget {
-  const Profile({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return const Text('Profile');
   }
 }

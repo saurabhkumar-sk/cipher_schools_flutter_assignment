@@ -6,6 +6,7 @@ class TransactionHistory extends StatelessWidget {
   final String subTitle;
   final String price;
   final String dateTime;
+  final Color color;
   const TransactionHistory({
     super.key,
     required this.image,
@@ -13,6 +14,7 @@ class TransactionHistory extends StatelessWidget {
     required this.subTitle,
     required this.price,
     required this.dateTime,
+    required this.color,
   });
 
   @override
@@ -29,14 +31,13 @@ class TransactionHistory extends StatelessWidget {
           borderRadius: BorderRadius.circular(24),
         ),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: const EdgeInsets.only(top: 10, bottom: 10, left: 20),
               child: Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: const Color.fromRGBO(252, 238, 212, 1),
-                ),
+                    borderRadius: BorderRadius.circular(10), color: color),
                 height: 60,
                 width: 60,
                 child: Image.asset(
@@ -44,12 +45,12 @@ class TransactionHistory extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(width: 9),
+            const SizedBox(width: 20),
             Padding(
               padding: const EdgeInsets.only(top: 0.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Text(
                     title,
@@ -70,7 +71,7 @@ class TransactionHistory extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(width: 61),
+            const SizedBox(width: 20),
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.end,
