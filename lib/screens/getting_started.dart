@@ -9,19 +9,18 @@ class GettingStarted extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          Column(
-            children: [
-              Expanded(
-                child: Image.asset(
-                  "assets/images/Getting Started (1).png",
-                  fit: BoxFit.contain,
-                ),
+          Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("assets/images/Getting Started (1).png"),
+                fit: BoxFit.fill,
               ),
-            ],
+            ),
           ),
           Positioned(
-            top: 650,
-            left: 280,
+            bottom: 125,
+            right: 32,
+            left: 290,
             child: ClipOval(
               child: GestureDetector(
                 onTap: () {

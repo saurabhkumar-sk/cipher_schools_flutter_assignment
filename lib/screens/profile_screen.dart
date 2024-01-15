@@ -1,11 +1,19 @@
 import 'package:cipher_schools_flutter_assignment/components/custombutton.dart';
 import 'package:cipher_schools_flutter_assignment/components/profile_screen_custom_card.dart';
 import 'package:cipher_schools_flutter_assignment/components/transaction_history_cus.dart';
+import 'package:cipher_schools_flutter_assignment/firebase/firebase_api.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
 
+  @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -62,19 +70,19 @@ class ProfileScreen extends StatelessWidget {
                 height: 356,
                 width: double.infinity,
                 color: const Color.fromARGB(255, 250, 250, 250),
-                child: const Column(
+                child: Column(
                   children: [
-                    ProfileScreeCard(
+                    const ProfileScreeCard(
                       image: "assets/images/wallet 3.png",
                       title: "Account",
                       color: Color.fromRGBO(238, 229, 255, 1),
                     ),
-                    ProfileScreeCard(
+                    const ProfileScreeCard(
                       image: "assets/images/settings.png",
                       title: "Setting",
                       color: Color.fromRGBO(238, 229, 255, 1),
                     ),
-                    ProfileScreeCard(
+                    const ProfileScreeCard(
                       image: "assets/images/upload.png",
                       title: "Export Data",
                       color: Color.fromRGBO(238, 229, 255, 1),
@@ -82,7 +90,11 @@ class ProfileScreen extends StatelessWidget {
                     ProfileScreeCard(
                       image: "assets/images/logout.png",
                       title: "Logout",
-                      color: Color.fromRGBO(255, 226, 228, 1),
+                      color: const Color.fromRGBO(255, 226, 228, 1),
+                      ontap: () async {
+                        await FirebaseAuth.instance.signOut();
+                        setState(() {});
+                      },
                     ),
                   ],
                 ),

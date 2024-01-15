@@ -11,7 +11,7 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    Future.delayed(const Duration(seconds: 2)).then((value) {
+    Future.delayed(const Duration(seconds: 3)).then((value) {
       Navigator.pushReplacement(
           context,
           MaterialPageRoute(
@@ -24,15 +24,13 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          Expanded(
-            child: Image.asset(
-              "assets/images/Splash screen'.png",
-              fit: BoxFit.contain,
-            ),
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/images/Splash screen'.png"),
+            fit: BoxFit.fill,
           ),
-        ],
+        ),
       ),
     );
   }

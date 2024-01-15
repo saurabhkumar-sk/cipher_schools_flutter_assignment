@@ -1,9 +1,20 @@
+import 'dart:developer';
+
+import 'package:cipher_schools_flutter_assignment/firebase/firebase_api.dart';
 import 'package:cipher_schools_flutter_assignment/screens/bottom_navigation_bar_screen.dart';
 import 'package:flutter/material.dart';
 
-class SignUpScreen extends StatelessWidget {
+class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
 
+  @override
+  State<SignUpScreen> createState() => _SignUpScreenState();
+}
+
+class _SignUpScreenState extends State<SignUpScreen> {
+  TextEditingController nameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,10 +37,20 @@ class SignUpScreen extends StatelessWidget {
           child: Column(
             children: [
               const SizedBox(height: 56),
-              const TextField(
-                style: TextStyle(color: Colors.white),
+              TextFormField(
+                validator: (value) {
+                  if (value == null) {
+                    return "Name is required";
+                  } else {
+                    return null;
+                  }
+                },
+                controller: nameController,
+                onChanged: (value) {
+                  setState(() {});
+                },
                 cursorColor: Colors.grey,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   border: OutlineInputBorder(borderRadius: BorderRadius.zero),
                   enabledBorder: OutlineInputBorder(
                     borderSide:
@@ -52,10 +73,20 @@ class SignUpScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 24),
-              const TextField(
-                style: TextStyle(color: Colors.white),
+              TextFormField(
+                validator: (value) {
+                  if (value == null) {
+                    return "Email is required";
+                  } else {
+                    return null;
+                  }
+                },
+                controller: emailController,
+                onChanged: (value) {
+                  setState(() {});
+                },
                 cursorColor: Colors.grey,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   border: OutlineInputBorder(borderRadius: BorderRadius.zero),
                   enabledBorder: OutlineInputBorder(
                     borderSide:
@@ -78,10 +109,20 @@ class SignUpScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 24),
-              const TextField(
-                style: TextStyle(color: Colors.white),
+              TextFormField(
+                validator: (value) {
+                  if (value == null) {
+                    return "Email is required";
+                  } else {
+                    return null;
+                  }
+                },
+                controller: passwordController,
+                onChanged: (value) {
+                  setState(() {});
+                },
                 cursorColor: Colors.grey,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   suffixIcon: Icon(
                     Icons.remove_red_eye_outlined,
                     color: Color(0xFF91919F),
@@ -110,10 +151,13 @@ class SignUpScreen extends StatelessWidget {
               const SizedBox(height: 17),
               Row(
                 children: [
-                  const Icon(
-                    Icons.check_box_outline_blank_rounded,
-                    size: 32,
-                    color: Color(0xFF7F3DFF),
+                  IconButton(
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.check_box_outline_blank_rounded,
+                      size: 32,
+                      color: Color(0xFF7F3DFF),
+                    ),
                   ),
                   const SizedBox(
                     width: 10,
@@ -144,7 +188,27 @@ class SignUpScreen extends StatelessWidget {
               ),
               const SizedBox(height: 27),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  log("message");
+                  FireBAseApi.instance
+                      .signUP(emailController.text, passwordController.text)
+                      .then(
+                    (value) {
+                      if (value != null) {
+                        Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  const BottomNavigationBarScree(),
+                            ),
+                            (route) => false);
+                      } else {
+                        return null;
+                      }
+                    },
+                  );
+                  setState(() {});
+                },
                 style: const ButtonStyle(
                   minimumSize: MaterialStatePropertyAll(
                     Size(double.infinity, 56),

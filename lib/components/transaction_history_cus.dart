@@ -50,7 +50,7 @@ class TransactionHistory extends StatelessWidget {
               padding: const EdgeInsets.only(top: 0.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     title,
@@ -72,28 +72,31 @@ class TransactionHistory extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 20),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Text(
-                  price,
-                  style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                    color: Color.fromRGBO(253, 60, 74, 1),
+            Padding(
+              padding: const EdgeInsets.only(left: 60),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Text(
+                    price,
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                      color: Color.fromRGBO(253, 60, 74, 1),
+                    ),
                   ),
-                ),
-                const SizedBox(height: 12),
-                Text(
-                  dateTime,
-                  style: const TextStyle(
-                    fontSize: 13,
-                    fontWeight: FontWeight.w500,
-                    color: Color.fromRGBO(145, 145, 159, 1),
+                  const SizedBox(height: 12),
+                  Text(
+                    dateTime,
+                    style: const TextStyle(
+                      fontSize: 13,
+                      fontWeight: FontWeight.w500,
+                      color: Color.fromRGBO(145, 145, 159, 1),
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             )
           ],
         ),
