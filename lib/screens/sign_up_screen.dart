@@ -243,7 +243,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
               ),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const BottomNavigationBarScree(),
+                      ));
+                },
                 style: const ButtonStyle(
                   elevation: MaterialStatePropertyAll(0),
                   minimumSize: MaterialStatePropertyAll(

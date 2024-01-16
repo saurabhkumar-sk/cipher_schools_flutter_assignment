@@ -1,9 +1,5 @@
-import 'package:cipher_schools_flutter_assignment/components/custombutton.dart';
 import 'package:cipher_schools_flutter_assignment/components/profile_screen_custom_card.dart';
-import 'package:cipher_schools_flutter_assignment/components/transaction_history_cus.dart';
-import 'package:cipher_schools_flutter_assignment/firebase/firebase_api.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatefulWidget {

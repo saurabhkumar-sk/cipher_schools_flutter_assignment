@@ -19,8 +19,8 @@ class GettingStarted extends StatelessWidget {
           ),
           Positioned(
             bottom: 125,
-            right: 32,
-            left: 290,
+            // right: 32,
+            left: 260,
             child: ClipOval(
               child: GestureDetector(
                 onTap: () {
